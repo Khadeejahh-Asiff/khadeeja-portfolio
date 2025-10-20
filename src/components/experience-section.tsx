@@ -56,7 +56,7 @@ const ExperienceSection = () => {
       period: '05/2023 - 12/2023',
       workType: 'On-site',
       description:
-        'Developed full-stack web platforms Voyage Vista (property booking) and ShopEase (e-commerce) using the MERN stack. Built key features like search, filtering, booking, cart, and checkout flows, ensuring smooth user interaction and data flow.',
+        'Developed full-stack web platforms Voyage Vista (property booking) and ShopEase (e-commerce) using the MERN stack. Built key features like search, filtering, booking, cart, and checkout flows, ensuring smooth user interaction and data flow. Worked on both the front-end and back-end of the projects. Collaborated with the team to deliver on time.',
       technologies: [
         { name: 'React.js', level: 90, icon: Code },
         { name: 'Node.js', level: 85, icon: Database },
@@ -219,15 +219,15 @@ const ExperienceSection = () => {
                 </p>
 
                 {/* Technologies */}
-                <div className="text-center">
+                <div className="text-left">
                   <div className="text-xs sm:text-sm font-mono text-hsl(var(--accent)) mb-3 sm:mb-4 opacity-80">
                     TECH STACK
                   </div>
-                  <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {experience.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-mono rounded text-center"
+                        className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-mono rounded"
                         style={{
                           backgroundColor: 'hsl(var(--accent) / 0.1)',
                           color: 'hsl(var(--accent))',
@@ -241,7 +241,7 @@ const ExperienceSection = () => {
                 </div>
 
                 {/* Period and Work Type */}
-                <div className="text-center mt-4 sm:mt-6">
+                <div className="text-left mt-4 sm:mt-6">
                   <p
                     className="text-xs sm:text-sm font-mono"
                     style={{ color: 'hsl(var(--muted-foreground))' }}
