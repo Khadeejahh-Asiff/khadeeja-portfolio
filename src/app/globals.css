@@ -55,41 +55,6 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  cursor: none; /* Hide default cursor */
-}
-
-/* Custom cursor styles */
-* {
-  cursor: none !important;
-}
-
-/* Re-enable cursor for form inputs and text areas */
-input, textarea, [contenteditable] {
-  cursor: text !important;
-}
-
-/* Custom cursor animations */
-@keyframes cursorPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes cursorGlow {
-  0% {
-    box-shadow: 0 0 5px hsl(var(--accent) / 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.8), 0 0 30px hsl(var(--accent) / 0.4);
-  }
-  100% {
-    box-shadow: 0 0 5px hsl(var(--accent) / 0.5);
-  }
 }
 
 /* Smooth scrolling */
@@ -119,6 +84,132 @@ html {
 ::selection {
   background-color: hsl(var(--primary) / 0.2);
   color: hsl(var(--foreground));
+}
+
+/* Custom Cursor Styles */
+* {
+  cursor: none !important;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: hsl(var(--accent));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 1px solid hsl(var(--accent));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-trail {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: hsl(var(--accent) / 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  mix-blend-mode: difference;
+}
+
+/* Cursor States */
+.custom-cursor-dot.clicking {
+  background: hsl(var(--primary));
+  transform: translate(-50%, -50%) scale(0.7) !important;
+}
+
+.custom-cursor-ring.clicking {
+  border-color: hsl(var(--primary));
+  transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+/* Link cursor */
+.custom-cursor-dot.link {
+  background: hsl(var(--accent));
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.custom-cursor-ring.link {
+  border-color: hsl(var(--accent));
+  border-width: 3px;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Button cursor */
+.custom-cursor-dot.button {
+  background: hsl(var(--primary));
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+.custom-cursor-ring.button {
+  border-color: hsl(var(--primary));
+  border-width: 3px;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+/* Interactive element cursor */
+.custom-cursor-dot.interactive {
+  background: hsl(var(--accent));
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.custom-cursor-ring.interactive {
+  border-color: hsl(var(--accent));
+  transform: translate(-50%, -50%) scale(2.2);
+}
+
+/* Text cursor */
+.custom-cursor-dot.text {
+  background: hsl(var(--foreground));
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.custom-cursor-ring.text {
+  border-color: hsl(var(--foreground));
+  transform: translate(-50%, -50%) scale(1.8);
+}
+
+/* Cursor animations */
+@keyframes cursorPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.custom-cursor-dot:hover {
+  animation: cursorPulse 2s ease-in-out infinite;
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+
+  .custom-cursor-dot,
+  .custom-cursor-ring,
+  .custom-cursor-trail {
+    display: none;
+  }
 }
 
 /* Focus styles */

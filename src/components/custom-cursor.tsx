@@ -5,92 +5,104 @@ import { useEffect, useState } from 'react';
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
+  const [cursorType, setCursorType] = useState('default');
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      setIsVisible(true);
     };
 
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseUp = () => setIsClicking(false);
 
     // Add event listeners
-    document.addEventListener('mousemove', updateMousePosition);
-    
-    // Add hover listeners for interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"], .project-card, .experience-card, .btn-primary');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
+    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
 
-    // Hide cursor when mouse leaves window
-    const handleMouseLeaveWindow = () => setIsVisible(false);
-    document.addEventListener('mouseleave', handleMouseLeaveWindow);
-    document.addEventListener('mouseenter', () => setIsVisible(true));
+    // Enhanced hover detection
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+
+      // Check for different types of interactive elements
+      if (target.tagName === 'A' || target.classList.contains('nav-link')) {
+        setIsHovering(true);
+        setCursorType('link');
+      } else if (
+        target.tagName === 'BUTTON' ||
+        target.classList.contains('btn-primary')
+      ) {
+        setIsHovering(true);
+        setCursorType('button');
+      } else if (
+        target.classList.contains('project-card') ||
+        target.classList.contains('experience-card') ||
+        target.classList.contains('cursor-pointer')
+      ) {
+        setIsHovering(true);
+        setCursorType('interactive');
+      } else if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+        setIsHovering(true);
+        setCursorType('text');
+      } else {
+        setIsHovering(false);
+        setCursorType('default');
+      }
+    };
+
+    const handleMouseOut = () => {
+      setIsHovering(false);
+      setCursorType('default');
+    };
+
+    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mouseout', handleMouseOut);
 
     return () => {
-      document.removeEventListener('mousemove', updateMousePosition);
-      document.removeEventListener('mouseleave', handleMouseLeaveWindow);
-      document.removeEventListener('mouseenter', () => setIsVisible(true));
-      
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', handleMouseEnter);
-        el.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      window.removeEventListener('mousemove', updateMousePosition);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mouseout', handleMouseOut);
     };
   }, []);
-
-  // Don't render on mobile devices
-  if (typeof window !== 'undefined' && window.innerWidth < 768) {
-    return null;
-  }
 
   return (
     <>
       {/* Main cursor dot */}
       <div
-        className={`fixed pointer-events-none z-[9999] transition-all duration-150 ease-out ${
-          isVisible ? 'opacity-100' : 'opacity-0'
+        className={`custom-cursor-dot ${cursorType} ${
+          isClicking ? 'clicking' : ''
         }`}
         style={{
-          left: mousePosition.x - 4,
-          top: mousePosition.y - 4,
-          transform: isHovering ? 'scale(1.5)' : 'scale(1)',
+          left: mousePosition.x,
+          top: mousePosition.y,
+          transform: `translate(-50%, -50%) scale(${isClicking ? 0.7 : 1})`,
         }}
-      >
-        <div className="w-2 h-2 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50" />
-      </div>
+      />
 
       {/* Cursor ring */}
       <div
-        className={`fixed pointer-events-none z-[9998] transition-all duration-300 ease-out ${
-          isVisible ? 'opacity-100' : 'opacity-0'
+        className={`custom-cursor-ring ${cursorType} ${
+          isClicking ? 'clicking' : ''
         }`}
         style={{
-          left: mousePosition.x - 12,
-          top: mousePosition.y - 12,
-          transform: isHovering ? 'scale(1.8)' : 'scale(1)',
+          left: mousePosition.x,
+          top: mousePosition.y,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 2.5 : 1})`,
         }}
-      >
-        <div className="w-6 h-6 border border-cyan-400/60 rounded-full animate-pulse" />
-      </div>
+      />
 
-      {/* Outer glow ring */}
+      {/* Cursor trail effect */}
       <div
-        className={`fixed pointer-events-none z-[9997] transition-all duration-500 ease-out ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`}
+        className="custom-cursor-trail"
         style={{
-          left: mousePosition.x - 20,
-          top: mousePosition.y - 20,
-          transform: isHovering ? 'scale(2.2)' : 'scale(1)',
+          left: mousePosition.x,
+          top: mousePosition.y,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 1.5 : 0.8})`,
         }}
-      >
-        <div className="w-10 h-10 border border-cyan-400/20 rounded-full animate-ping" />
-      </div>
+      />
     </>
   );
 }
