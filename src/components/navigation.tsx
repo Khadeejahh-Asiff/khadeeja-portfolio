@@ -3,20 +3,16 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { NAV_ITEMS } from '@/constants';
+import { useActiveSection } from '@/hooks/useActiveSection';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
+import { scrollToSection } from '@/utils/scrollUtils';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  const navItems = [
-    { name: 'home', href: '#home' },
-    { name: 'expertise', href: '#expertise' },
-    { name: 'work', href: '#work' },
-    { name: 'experience', href: '#experience' },
-    { name: 'contact', href: '#contact' },
-  ];
+  const activeSection = useActiveSection();
+  const scrollProgress = useScrollProgress();
 
   useEffect(() => {
     setMounted(true);
