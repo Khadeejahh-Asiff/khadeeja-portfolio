@@ -60,13 +60,13 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-4 sm:ml-6">
                   <h3
-                    className="text-xl sm:text-2xl font-semibold"
+                    className="text-xl sm:text-2xl font-semibold text-left"
                     style={{ color: 'hsl(var(--foreground))' }}
                   >
                     Email Contact
                   </h3>
                   <p
-                    className="text-xs sm:text-sm"
+                    className="text-xs sm:text-sm text-left"
                     style={{ color: 'hsl(var(--accent))' }}
                   >
                     Direct Communication
@@ -110,13 +110,13 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-4 sm:ml-6">
                   <h3
-                    className="text-xl sm:text-2xl font-semibold"
+                    className="text-xl sm:text-2xl font-semibold text-left"
                     style={{ color: 'hsl(var(--foreground))' }}
                   >
                     LinkedIn Network
                   </h3>
                   <p
-                    className="text-xs sm:text-sm"
+                    className="text-xs sm:text-sm text-left"
                     style={{ color: 'hsl(var(--accent))' }}
                   >
                     Professional Connect
@@ -162,13 +162,13 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-4 sm:ml-6">
                   <h3
-                    className="text-xl sm:text-2xl font-semibold"
+                    className="text-xl sm:text-2xl font-semibold text-left"
                     style={{ color: 'hsl(var(--foreground))' }}
                   >
                     GitHub Code
                   </h3>
                   <p
-                    className="text-xs sm:text-sm"
+                    className="text-xs sm:text-sm text-left"
                     style={{ color: 'hsl(var(--accent))' }}
                   >
                     Repository Access
