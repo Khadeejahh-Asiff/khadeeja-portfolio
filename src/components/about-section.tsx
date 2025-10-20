@@ -3,44 +3,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code, Database, Monitor } from 'lucide-react';
+import { EXPERTISE_DATA } from '@/constants';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { TechStack } from '@/components/ui/TechStack';
+import { Expertise } from '@/types';
 
 const ExpertiseSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  const expertise = [
-    {
-      title: 'Software Development',
-      highlight: 'Development',
-      description:
-        'Experienced in both functional and OOP: JavaScript, TypeScript, Python, Java.',
-      icon: Code,
-      technologies: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++'],
-    },
-    {
-      title: 'Frontend Dev',
-      highlight: 'React, NextJS',
-      description:
-        'Passionate about UI/UX. Over 2 years of development experience in HTML, CSS, JS, React and NextJS frameworks.',
-      icon: Code,
-      technologies: [
-        'React',
-        'NextJS',
-        'Tailwind',
-        'Framer Motion',
-        'TypeScript',
-      ],
-    },
-    {
-      title: 'Backend Dev',
-      highlight: 'Node.js, MongoDB',
-      description:
-        'Skilled in developing scalable backend solutions and APIs using Node.js, Express, and MongoDB.',
-      icon: Database,
-      technologies: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Redis'],
-    },
-  ];
 
   return (
     <section
@@ -129,44 +99,17 @@ const ExpertiseSection = () => {
           transition={{ duration: 0.8 }}
           className="space-y-12 sm:space-y-16"
         >
-          {/* Section header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <SectionHeader
+            title="My Expertise"
+            description="Technical skills and expertise in modern web development"
+            indicator="EXPERTISE"
+            isInView={isInView}
             className="text-center"
-          >
-            {/* Subtle dev indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex items-center justify-center gap-2 mb-4"
-            >
-              <div className="w-2 h-2 rounded-full bg-hsl(var(--accent))"></div>
-              <span className="font-mono text-xs text-hsl(var(--accent)) tracking-wider">
-                EXPERTISE
-              </span>
-              <div className="w-2 h-2 rounded-full bg-hsl(var(--accent))"></div>
-            </motion.div>
-
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
-              style={{ color: 'hsl(var(--foreground))' }}
-            >
-              My Expertise
-            </h2>
-            <p
-              className="text-base sm:text-lg max-w-2xl mx-auto px-4"
-              style={{ color: 'hsl(var(--muted-foreground))' }}
-            >
-              Technical skills and expertise in modern web development
-            </p>
-          </motion.div>
+          />
 
           {/* Expertise cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {expertise.map((item, index) => {
+            {EXPERTISE_DATA.map((item, index) => {
               const IconComponent = item.icon;
               return (
                 <motion.div
@@ -225,27 +168,13 @@ const ExpertiseSection = () => {
                     {item.description}
                   </p>
 
-                  {/* Technologies */}
-                  <div className="text-center">
-                    <div className="text-xs sm:text-sm font-mono text-hsl(var(--accent)) mb-3 sm:mb-4 opacity-80">
-                      TECH STACK
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-                      {item.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-mono rounded text-center"
-                          style={{
-                            backgroundColor: 'hsl(var(--accent) / 0.1)',
-                            color: 'hsl(var(--accent))',
-                            border: '1px solid hsl(var(--accent) / 0.2)',
-                          }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <TechStack
+                    technologies={item.technologies.map(tech => ({
+                      name: tech,
+                      level: 85,
+                      icon: item.icon,
+                    }))}
+                  />
                 </motion.div>
               );
             })}

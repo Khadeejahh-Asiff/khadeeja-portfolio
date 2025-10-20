@@ -71,7 +71,7 @@ const WorkSection = () => {
             {/* Purple curved arrow - hidden on mobile */}
             <div className="hidden lg:block absolute -left-16 top-1/2 transform -translate-y-1/2 z-20">
               <svg
-                width="100"
+                width="80"
                 height="80"
                 viewBox="0 0 120 80"
                 className="text-purple-500"

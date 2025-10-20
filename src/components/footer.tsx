@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/constants';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,24 +17,7 @@ const Footer = () => {
         >
           {/* Social links */}
           <div className="flex items-center justify-center space-x-6 sm:space-x-8">
-            {[
-              {
-                icon: Github,
-                href: 'https://github.com/Khadeejahh-Asiff',
-                color: 'hsl(var(--accent))',
-              },
-              {
-                icon: Linkedin,
-                href: 'https://linkedin.com/in/khadeejah-asif',
-                color: 'hsl(var(--primary))',
-              },
-              {
-                icon: Mail,
-                href: 'mailto:khadeejaasif323@gmail.com',
-                color: 'hsl(var(--accent))',
-              },
-              { icon: Instagram, href: '#', color: 'hsl(var(--primary))' },
-            ].map((social, index) => (
+            {SOCIAL_LINKS.map((social, index) => (
               <motion.a
                 key={index}
                 whileHover={{ scale: 1.2, y: -2 }}

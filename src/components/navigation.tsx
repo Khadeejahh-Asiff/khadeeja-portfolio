@@ -16,79 +16,10 @@ const Navigation = () => {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
 
-    let timeoutId: NodeJS.Timeout;
-
-    // Function to detect which section is currently in view and calculate scroll progress
-    const handleScroll = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        const sections = navItems
-          .map(item => ({
-            name: item.name,
-            element: document.querySelector(item.href),
-          }))
-          .filter(section => section.element);
-
-        const scrollPosition = window.scrollY + 150; // Offset for navbar height
-
-        // Calculate scroll progress
-        const documentHeight =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const currentProgress = (window.scrollY / documentHeight) * 100;
-        setScrollProgress(Math.min(100, Math.max(0, currentProgress)));
-
-        // Find the section that's currently most visible
-        let currentSection = 'home';
-        let maxVisible = 0;
-
-        sections.forEach(section => {
-          if (section.element) {
-            const rect = section.element.getBoundingClientRect();
-            const elementTop = rect.top + window.scrollY;
-            const elementBottom = elementTop + rect.height;
-
-            // Calculate how much of the section is visible
-            const visibleTop = Math.max(elementTop, scrollPosition);
-            const visibleBottom = Math.min(
-              elementBottom,
-              scrollPosition + window.innerHeight
-            );
-            const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-
-            if (
-              visibleHeight > maxVisible &&
-              scrollPosition >= elementTop - 100
-            ) {
-              maxVisible = visibleHeight;
-              currentSection = section.name;
-            }
-          }
-        });
-
-        setActiveSection(currentSection);
-      }, 10); // Small delay to prevent too frequent updates
-    };
-
-    // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Initial check
-    handleScroll();
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timeoutId);
-    };
-  }, [navItems]);
-
-  const scrollToSection = (href: string, name: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setActiveSection(name);
+  const handleNavClick = (href: string, name: string) => {
+    scrollToSection(href);
     setIsOpen(false);
   };
 
@@ -152,15 +83,20 @@ const Navigation = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item, index) => (
+            <nav
+              className="hidden md:flex items-center space-x-8"
+              role="navigation"
+              aria-label="Main navigation"
+            >
+              {NAV_ITEMS.map((item, index) => (
                 <motion.button
                   key={item.name}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ y: -1 }}
-                  onClick={() => scrollToSection(item.href, item.name)}
+                  onClick={() => handleNavClick(item.href, item.name)}
+                  aria-label={`Navigate to ${item.name} section`}
                   className={`relative text-sm font-mono transition-colors duration-300 ${
                     activeSection === item.name
                       ? 'text-hsl(var(--accent))'
@@ -191,7 +127,7 @@ const Navigation = () => {
                   )}
                 </motion.button>
               ))}
-            </div>
+            </nav>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -220,13 +156,14 @@ const Navigation = () => {
               className="md:hidden border-t border-hsl(var(--border) / 0.2)"
             >
               <div className="py-3 sm:py-4 space-y-1">
-                {navItems.map((item, index) => (
+                {NAV_ITEMS.map((item, index) => (
                   <motion.button
                     key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.href, item.name)}
+                    onClick={() => handleNavClick(item.href, item.name)}
+                    aria-label={`Navigate to ${item.name} section`}
                     className={`block w-full text-left px-4 py-2.5 sm:py-3 text-sm font-mono transition-colors duration-300 ${
                       activeSection === item.name
                         ? 'text-hsl(var(--accent)) bg-hsl(var(--primary) / 0.1)'

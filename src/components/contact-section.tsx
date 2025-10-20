@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { CONTACT_METHODS } from '@/constants';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Mail, Linkedin, Github } from 'lucide-react';
 
 const ContactSection = () => {
@@ -19,27 +21,13 @@ const ContactSection = () => {
           transition={{ duration: 0.8 }}
           className="space-y-12 sm:space-y-16"
         >
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6 }}
-            className="text-center space-y-4"
-          >
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-              Contact
-            </p>
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
-              style={{ color: 'hsl(var(--foreground))' }}
-            >
-              Get In Touch
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-              Have an exciting project you need help with? I'm always interested
-              in new opportunities and would love to hear from you!
-            </p>
-          </motion.div>
+          <SectionHeader
+            title="Get In Touch"
+            description="Have an exciting project you need help with? I'm always interested in new opportunities and would love to hear from you!"
+            indicator="CONTACT"
+            isInView={isInView}
+            className="text-center"
+          />
 
           {/* Contact Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

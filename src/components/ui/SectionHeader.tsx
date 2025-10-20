@@ -27,14 +27,14 @@ export const SectionHeader = ({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className={`text-left ${className}`}
+      className={`${className}`}
     >
       {indicator && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex items-center gap-2 mb-4"
+          className="flex items-center justify-center gap-2 mb-4"
         >
           <div className="w-2 h-2 rounded-full bg-hsl(var(--accent))"></div>
           <span className="font-mono text-xs text-hsl(var(--accent)) tracking-wider">
@@ -56,7 +56,7 @@ export const SectionHeader = ({
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-base sm:text-lg max-w-2xl px-4"
+          className="text-base sm:text-lg max-w-2xl mx-auto px-4"
           style={{ color: 'hsl(var(--muted-foreground))' }}
         >
           {subtitle}
@@ -68,7 +68,7 @@ export const SectionHeader = ({
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-base sm:text-lg max-w-2xl px-4"
+          className="text-base sm:text-lg max-w-2xl mx-auto px-4"
           style={{ color: 'hsl(var(--muted-foreground))' }}
         >
           {description}
