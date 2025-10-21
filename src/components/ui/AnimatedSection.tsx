@@ -1,17 +1,21 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Transition, TargetAndTransition } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, ReactNode } from 'react';
-import { SectionProps, AnimationVariants } from '@/types';
+import { SectionProps } from '@/types';
 
 interface AnimatedSectionProps extends SectionProps {
-  animationVariants?: AnimationVariants;
+  animationVariants?: {
+    initial: TargetAndTransition;
+    animate: TargetAndTransition;
+    transition: Transition;
+  };
   delay?: number;
   children: ReactNode;
 }
 
-const defaultVariants: AnimationVariants = {
+const defaultVariants = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.8 },
@@ -33,7 +37,11 @@ export const AnimatedSection = ({
       id={id}
       className={className}
       initial={animationVariants.initial}
-      animate={isInView ? animationVariants.animate : animationVariants.initial}
+      animate={
+        isInView
+          ? animationVariants.animate
+          : animationVariants.initial
+      }
       transition={{ ...animationVariants.transition, delay }}
     >
       {children}

@@ -3,7 +3,7 @@
 import { Technology } from '@/types';
 
 interface TechStackProps {
-  technologies: Technology[];
+  technologies: readonly Technology[];
   className?: string;
 }
 

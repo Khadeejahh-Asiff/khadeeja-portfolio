@@ -67,12 +67,6 @@ export interface CursorState {
   cursorType: 'default' | 'link' | 'button' | 'interactive' | 'text';
 }
 
-export interface AnimationVariants {
-  initial: Record<string, unknown>;
-  animate: Record<string, unknown>;
-  transition: Record<string, unknown>;
-}
-
 export interface SectionProps {
   id: string;
   className?: string;

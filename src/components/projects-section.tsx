@@ -54,9 +54,9 @@ const WorkSection = () => {
                 Next.js, and cutting-edge UI/UX design.
               </p>
               <p>
-                Delivered 140+ successful projects for 50+ global clients,
-                building scalable web applications, mobile apps, and data
-                visualization solutions that drive real business impact.
+                Delivered successful projects for global clients, building
+                scalable web applications, mobile apps, and data visualization
+                solutions that drive real business impact.
               </p>
             </div>
           </motion.div>
