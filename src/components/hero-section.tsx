@@ -132,7 +132,7 @@ const HeroSection = () => {
               className="hero-subtitle"
               style={{ color: 'hsl(var(--accent))' }}
             >
-              FRONT END & APP DEVELOPER
+              FRONT STACK DEVELOPER
             </p>
           </motion.div>
 
