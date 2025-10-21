@@ -3,7 +3,10 @@
 export interface Technology {
   name: string;
   level: number;
-  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  icon: React.ComponentType<{
+    className?: string;
+    style?: React.CSSProperties;
+  }>;
 }
 
 export interface Experience {
@@ -26,12 +29,18 @@ export interface Expertise {
   title: string;
   highlight: string;
   description: string;
-  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  icon: React.ComponentType<{
+    className?: string;
+    style?: React.CSSProperties;
+  }>;
   technologies: string[];
 }
 
 export interface ContactMethod {
-  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  icon: React.ComponentType<{
+    className?: string;
+    style?: React.CSSProperties;
+  }>;
   href: string;
   color: string;
 }
@@ -42,7 +51,10 @@ export interface NavItem {
 }
 
 export interface SocialLink {
-  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  icon: React.ComponentType<{
+    className?: string;
+    style?: React.CSSProperties;
+  }>;
   href: string;
   color: string;
 }
@@ -56,9 +68,9 @@ export interface CursorState {
 }
 
 export interface AnimationVariants {
-  initial: Record<string, any>;
-  animate: Record<string, any>;
-  transition: Record<string, any>;
+  initial: Record<string, unknown>;
+  animate: Record<string, unknown>;
+  transition: Record<string, unknown>;
 }
 
 export interface SectionProps {
@@ -68,9 +80,9 @@ export interface SectionProps {
 }
 
 export interface MotionProps {
-  initial?: Record<string, any>;
-  animate?: Record<string, any>;
-  transition?: Record<string, any>;
-  whileHover?: Record<string, any>;
-  whileTap?: Record<string, any>;
+  initial?: Record<string, unknown>;
+  animate?: Record<string, unknown>;
+  transition?: Record<string, unknown>;
+  whileHover?: Record<string, unknown>;
+  whileTap?: Record<string, unknown>;
 }

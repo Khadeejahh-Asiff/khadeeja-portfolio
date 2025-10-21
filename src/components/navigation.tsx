@@ -18,7 +18,7 @@ const Navigation = () => {
     setMounted(true);
   }, []);
 
-  const handleNavClick = (href: string, name: string) => {
+  const handleNavClick = (href: string) => {
     scrollToSection(href);
     setIsOpen(false);
   };
@@ -95,7 +95,7 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ y: -1 }}
-                  onClick={() => handleNavClick(item.href, item.name)}
+                  onClick={() => handleNavClick(item.href)}
                   aria-label={`Navigate to ${item.name} section`}
                   className={`relative text-sm font-mono transition-colors duration-300 ${
                     activeSection === item.name
@@ -162,7 +162,7 @@ const Navigation = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={() => handleNavClick(item.href, item.name)}
+                    onClick={() => handleNavClick(item.href)}
                     aria-label={`Navigate to ${item.name} section`}
                     className={`block w-full text-left px-4 py-2.5 sm:py-3 text-sm font-mono transition-colors duration-300 ${
                       activeSection === item.name

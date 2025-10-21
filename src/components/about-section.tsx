@@ -6,7 +6,6 @@ import { useRef } from 'react';
 import { EXPERTISE_DATA } from '@/constants';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { TechStack } from '@/components/ui/TechStack';
-import { Expertise } from '@/types';
 
 const ExpertiseSection = () => {
   const ref = useRef(null);
@@ -243,14 +242,14 @@ const ExpertiseSection = () => {
                     name=
                   </span>
                   <span style={{ color: 'hsl(var(--gold-accent))' }}>
-                    "viewport"
+                    &quot;viewport&quot;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
                     {' '}
                     content=
                   </span>
                   <span style={{ color: 'hsl(var(--gold-accent))' }}>
-                    "width=device-width, initial-scale=1.0"
+                    &quot;width=device-width, initial-scale=1.0&quot;
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>&gt;</span>
                 </div>

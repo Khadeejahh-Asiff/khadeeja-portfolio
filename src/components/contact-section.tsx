@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { CONTACT_METHODS } from '@/constants';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Mail, Linkedin, Github } from 'lucide-react';
 

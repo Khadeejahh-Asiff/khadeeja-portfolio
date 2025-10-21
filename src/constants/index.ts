@@ -1,18 +1,14 @@
 // Portfolio Constants
 
-import { 
-  Code, 
-  Database, 
-  Monitor, 
-  Mail, 
-  Linkedin, 
-  Github, 
+import {
+  Code,
+  Database,
+  Mail,
+  Linkedin,
+  Github,
   Instagram,
   Cpu,
   Globe,
-  Zap,
-  GitBranch,
-  Terminal
 } from 'lucide-react';
 
 export const NAV_ITEMS = [
@@ -27,21 +23,30 @@ export const EXPERTISE_DATA = [
   {
     title: 'Software Development',
     highlight: 'Development',
-    description: 'Experienced in both functional and OOP: JavaScript, TypeScript, Python, Java.',
+    description:
+      'Experienced in both functional and OOP: JavaScript, TypeScript, Python, Java.',
     icon: Code,
     technologies: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++'],
   },
   {
     title: 'Frontend Dev',
     highlight: 'React, NextJS',
-    description: 'Passionate about UI/UX. Over 2 years of development experience in HTML, CSS, JS, React and NextJS frameworks.',
+    description:
+      'Passionate about UI/UX. Over 2 years of development experience in HTML, CSS, JS, React and NextJS frameworks.',
     icon: Code,
-    technologies: ['React', 'NextJS', 'Tailwind', 'Framer Motion', 'TypeScript'],
+    technologies: [
+      'React',
+      'NextJS',
+      'Tailwind',
+      'Framer Motion',
+      'TypeScript',
+    ],
   },
   {
     title: 'Backend Dev',
     highlight: 'Node.js, MongoDB',
-    description: 'Skilled in developing scalable backend solutions and APIs using Node.js, Express, and MongoDB.',
+    description:
+      'Skilled in developing scalable backend solutions and APIs using Node.js, Express, and MongoDB.',
     icon: Database,
     technologies: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Redis'],
   },
@@ -54,7 +59,8 @@ export const EXPERIENCE_DATA = [
     location: 'Canada',
     period: '04/2024 - Present',
     workType: 'Hybrid' as const,
-    description: 'Designed and optimized responsive UIs using React.js, Next.js, and SWR, ensuring seamless performance and data handling. Built and maintained management and job portal platforms with features like authentication, attendance tracking, and workflow automation.',
+    description:
+      'Designed and optimized responsive UIs using React.js, Next.js, and SWR, ensuring seamless performance and data handling. Built and maintained management and job portal platforms with features like authentication, attendance tracking, and workflow automation.',
     technologies: [
       { name: 'React.js', level: 95, icon: Code },
       { name: 'Next.js', level: 90, icon: Globe },
@@ -80,7 +86,8 @@ export const EXPERIENCE_DATA = [
     location: 'Lahore, Pakistan',
     period: '05/2023 - 12/2023',
     workType: 'On-site' as const,
-    description: 'Developed full-stack web platforms Voyage Vista (property booking) and ShopEase (e-commerce) using the MERN stack. Built key features like search, filtering, booking, cart, and checkout flows, ensuring smooth user interaction and data flow. Worked on both the front-end and back-end of the projects. Collaborated with the team to deliver on time.',
+    description:
+      'Developed full-stack web platforms Voyage Vista (property booking) and ShopEase (e-commerce) using the MERN stack. Built key features like search, filtering, booking, cart, and checkout flows, ensuring smooth user interaction and data flow. Worked on both the front-end and back-end of the projects. Collaborated with the team to deliver on time.',
     technologies: [
       { name: 'React.js', level: 90, icon: Code },
       { name: 'Node.js', level: 85, icon: Database },
@@ -135,10 +142,10 @@ export const SOCIAL_LINKS = [
     href: 'mailto:khadeejaasif323@gmail.com',
     color: 'hsl(var(--accent))',
   },
-  { 
-    icon: Instagram, 
-    href: '#', 
-    color: 'hsl(var(--primary))' 
+  {
+    icon: Instagram,
+    href: '#',
+    color: 'hsl(var(--primary))',
   },
 ] as const;
 

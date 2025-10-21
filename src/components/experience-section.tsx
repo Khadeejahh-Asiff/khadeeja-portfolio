@@ -112,7 +112,7 @@ const ExperienceSection = () => {
                   {experience.description}
                 </p>
 
-                <TechStack technologies={experience.technologies as any} />
+                <TechStack technologies={experience.technologies} />
 
                 {/* Period and Work Type */}
                 <div className="text-left mt-4 sm:mt-6">
