@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://khadeeja-portfolio.vercel.app'),
-  title: 'Khadeejah Asif - Full Stack Developer',
+  title: 'Maryam Ali - Full Stack Developer',
   description:
     'Full Stack Developer skilled in React.js, Next.js, TypeScript, Node.js, and MongoDB. Building responsive, high-performance web applications.',
   keywords: [

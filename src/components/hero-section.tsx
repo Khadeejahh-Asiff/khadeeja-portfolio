@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const HeroSection = () => {
   const scrollToExpertise = () => {
@@ -27,74 +26,83 @@ const HeroSection = () => {
       <div className="hero-diagonal-line"></div>
       <div className="hero-glow-orb"></div>
       <div className="hero-glow-orb-2"></div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 0.35, scale: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="absolute top-24 left-8 sm:left-16 w-8 h-8 sm:w-10 sm:h-10 rounded-full z-10"
+        style={{ backgroundColor: 'hsl(var(--accent))' }}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 0.25, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="absolute top-1/3 right-8 sm:right-16 w-4 h-4 sm:w-6 sm:h-6 rounded-full z-10"
+        style={{ backgroundColor: 'hsl(var(--primary))' }}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 0.3, scale: 1 }}
+        transition={{ duration: 1, delay: 0.7 }}
+        className="absolute bottom-24 right-10 sm:right-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full z-10"
+        style={{ backgroundColor: 'hsl(var(--teal-light))' }}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 0.2, scale: 1 }}
+        transition={{ duration: 1, delay: 0.9 }}
+        className="absolute bottom-1/4 left-4 sm:left-10 w-5 h-5 sm:w-7 sm:h-7 rounded-full z-10"
+        style={{ backgroundColor: 'hsl(var(--gold-accent))' }}
+      />
 
-      <div className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 lg:gap-20">
-        {/* Portrait Section */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-8 lg:px-12 grid lg:grid-cols-2 items-center gap-10 lg:gap-20 relative z-20">
+        {/* Left: Name/Title */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="relative order-2 lg:order-1 flex justify-center lg:justify-start w-full lg:w-auto"
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+          className="w-full text-center lg:text-left lg:justify-self-start"
         >
-          <div className="hero-portrait-frame w-[250px] h-[320px] sm:w-[320px] sm:h-[400px] lg:w-[420px] lg:h-[520px]">
-            <div className="hero-portrait-inner">
-              <Image
-                src="/me.jpeg"
-                alt="Khadeeja Asif"
-                fill
-                className="object-cover relative z-10"
-                priority
-              />
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="hero-title leading-[0.9]"
+          >
+            MARYAM
+            <br />
+            ALI
+          </motion.h1>
 
-              {/* Subtle overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-hsl(var(--primary) / 0.1) z-20"></div>
-            </div>
-          </div>
-
-          {/* Floating tech elements - hidden on mobile for cleaner look */}
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="hidden sm:block absolute -top-6 -right-6 w-8 h-8 lg:w-12 lg:h-12 rounded-full opacity-70"
-            style={{ backgroundColor: 'hsl(var(--accent))' }}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="hidden sm:block absolute -bottom-6 -left-6 w-6 h-6 lg:w-8 lg:h-8 rounded-full opacity-50"
-            style={{ backgroundColor: 'hsl(var(--primary))' }}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="hidden sm:block absolute top-1/4 -left-6 lg:-left-8 w-3 h-3 lg:w-4 lg:h-4 rounded-full opacity-60"
-            style={{ backgroundColor: 'hsl(var(--gold-accent))' }}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            className="hidden sm:block absolute bottom-1/4 -right-6 lg:-right-8 w-4 h-4 lg:w-6 lg:h-6 rounded-full opacity-40"
-            style={{ backgroundColor: 'hsl(var(--teal-light))' }}
-          />
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="space-y-2 mt-5"
+          >
+            <p className="hero-subtitle">SOFTWARE ENGINEER</p>
+            <p
+              className="hero-subtitle"
+              style={{ color: 'hsl(var(--accent))' }}
+            >
+              FULL STACK DEVELOPER
+            </p>
+          </motion.div>
         </motion.div>
 
-        {/* Text Content */}
+        {/* Right: Profile/Description */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-          className="flex-1 max-w-3xl order-1 lg:order-2 text-center lg:text-left w-full lg:w-auto"
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+          className="w-full max-w-2xl text-center lg:text-right lg:justify-self-end rounded-2xl border border-white/10 bg-black/15 backdrop-blur-sm p-5 sm:p-7"
         >
           {/* Code-style prefix */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center justify-center lg:justify-end gap-3 mb-6"
           >
             <div
               className="w-3 h-3 rounded-full"
@@ -108,44 +116,27 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          {/* Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="hero-title"
-          >
-            KHADEEJAH
-            <br />
-            ASIF
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="space-y-2"
-          >
-            <p className="hero-subtitle">SOFTWARE ENGINEER</p>
-            <p
-              className="hero-subtitle"
-              style={{ color: 'hsl(var(--accent))' }}
-            >
-              FULL STACK DEVELOPER
-            </p>
-          </motion.div>
-
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="text-base sm:text-lg leading-relaxed mt-4 sm:mt-6 max-w-lg mx-auto lg:mx-0"
-            style={{ color: 'hsl(var(--muted-foreground))' }}
+            className="text-base sm:text-lg leading-relaxed mt-4 sm:mt-6 max-w-xl mx-auto lg:ml-auto lg:mr-0"
+            style={{
+              color: 'hsl(var(--muted-foreground))',
+              textAlign: 'justify',
+              textJustify: 'inter-word',
+            }}
           >
-            Crafting exceptional digital experiences through innovative
-            front-end development and cutting-edge mobile applications.
+            I&apos;m a Full Stack Developer focused on building scalable web
+            applications, secure APIs, and enterprise-ready solutions using
+            ASP.NET Core, C#, React, Next.js, SQL Server, and modern service
+            architectures. I prioritize clean architecture, maintainable code,
+            and performance-driven development to deliver seamless user
+            experiences. My work includes CRM and business workflow systems,
+            healthcare-oriented processes, and responsive frontend applications.
+            I collaborate effectively in Agile/Scrum teams and continuously
+            explore AI to expand my technical expertise.
           </motion.p>
 
           {/* CTA Button */}
@@ -153,7 +144,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="hero-cta mx-auto lg:mx-0 mt-6 sm:mt-8"
+            className="hero-cta mx-auto lg:ml-auto lg:mr-0 mt-7 sm:mt-8"
             onClick={scrollToExpertise}
           >
             <span className="text-sm sm:text-base">VIEW PORTFOLIO</span>

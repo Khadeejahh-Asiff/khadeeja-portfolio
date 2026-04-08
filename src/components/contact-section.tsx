@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -29,7 +29,7 @@ const ContactSection = () => {
           />
 
           {/* Contact Cards */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
             {/* Email Contact Card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -72,62 +72,10 @@ const ContactSection = () => {
                   Contact
                 </p>
                 <a
-                  href="mailto:khadeejaasif323@gmail.com"
+                  href="mailto:marium.ali1623@gmail.com"
                   className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"
                 >
                   Email
-                </a>
-              </div>
-            </motion.div>
-
-            {/* LinkedIn Contact Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="expertise-card group relative p-6 sm:p-8 lg:p-12"
-            >
-              <div className="flex items-center mb-6 sm:mb-8">
-                <div className="expertise-icon relative">
-                  <Linkedin
-                    className="h-8 w-8 sm:h-10 sm:w-10"
-                    style={{ color: 'hsl(var(--accent))' }}
-                  />
-                  <div className="absolute inset-0 bg-hsl(var(--accent)) opacity-10 rounded-full blur-sm group-hover:opacity-20 transition-opacity"></div>
-                </div>
-                <div className="ml-4 sm:ml-6">
-                  <h3
-                    className="text-xl sm:text-2xl font-semibold text-left"
-                    style={{ color: 'hsl(var(--foreground))' }}
-                  >
-                    LinkedIn Network
-                  </h3>
-                  <p
-                    className="text-xs sm:text-sm text-left"
-                    style={{ color: 'hsl(var(--accent))' }}
-                  >
-                    Professional Connect
-                  </p>
-                </div>
-              </div>
-              <p
-                className="text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 text-left"
-                style={{ color: 'hsl(var(--muted-foreground))' }}
-              >
-                Connect with me on LinkedIn for professional opportunities and
-                networking.
-              </p>
-              <div>
-                <p className="text-xs sm:text-sm text-foreground uppercase tracking-wider mb-3 sm:mb-4 text-center">
-                  Connect
-                </p>
-                <a
-                  href="https://www.linkedin.com/in/khadeejah-asif/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"
-                >
-                  LinkedIn
                 </a>
               </div>
             </motion.div>
@@ -174,7 +122,7 @@ const ContactSection = () => {
                   Repository
                 </p>
                 <a
-                  href="https://github.com/Khadeejahh-Asiff"
+                  href="https://github.com/merium6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"

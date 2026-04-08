@@ -124,7 +124,7 @@ const ExpertiseSection = () => {
                   {/* Subtle corner accent */}
                   <div className="absolute top-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-hsl(var(--accent)) opacity-20 group-hover:opacity-40 transition-opacity"></div>
 
-                  <div className="flex items-center mb-6 sm:mb-8">
+                  <div className="flex items-start mb-6 sm:mb-8">
                     <div className="expertise-icon relative">
                       <IconComponent
                         className="h-8 w-8 sm:h-10 sm:w-10"
@@ -133,7 +133,7 @@ const ExpertiseSection = () => {
                       {/* Subtle glow effect */}
                       <div className="absolute inset-0 bg-hsl(var(--accent)) opacity-10 rounded-full blur-sm group-hover:opacity-20 transition-opacity"></div>
                     </div>
-                    <div className="ml-4 sm:ml-6">
+                    <div className="ml-4 sm:ml-6 text-left">
                       <h3
                         className="text-xl sm:text-2xl font-semibold"
                         style={{ color: 'hsl(var(--foreground))' }}
@@ -258,7 +258,7 @@ const ExpertiseSection = () => {
                     &lt;title&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Khadeeja Asif - Portfolio
+                    Maryam Ali - Portfolio
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/title&gt;
@@ -279,7 +279,7 @@ const ExpertiseSection = () => {
                     &lt;h1&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Building exceptional digital experiences
+                    Building scalable full-stack solutions
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/h1&gt;
@@ -290,7 +290,7 @@ const ExpertiseSection = () => {
                     &lt;p&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Crafting modern web applications with passion and precision.
+                    Delivering clean architecture, secure APIs, and modern UIs.
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/p&gt;
@@ -301,7 +301,7 @@ const ExpertiseSection = () => {
                     &lt;span&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Ready to bring your ideas to life!
+                    Focused on reliability, performance, and business impact.
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/span&gt;

@@ -78,7 +78,7 @@ const Navigation = () => {
               style={{ color: 'hsl(var(--accent))' }}
             >
               <span className="hidden xs:inline">KhadeejahAsif</span>
-              <span className="xs:hidden">K.Asif</span>
+              <span className="xs:hidden">Maryam</span>
               <span style={{ color: 'hsl(var(--primary))' }}>._</span>
             </motion.div>
 
