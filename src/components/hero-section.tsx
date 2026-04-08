@@ -112,7 +112,7 @@ const HeroSection = () => {
               className="font-mono text-sm tracking-wider"
               style={{ color: 'hsl(var(--accent))' }}
             >
-              &gt; KHADEEJA_ASIF.portfolio
+              &gt; Maryam_Ali.portfolio
             </span>
           </motion.div>
 
